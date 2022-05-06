@@ -1,5 +1,14 @@
 ## ci-4-terraform-aws-developer-tools-terratest
 
+This repo is modifed to try to use some typical go tests on terratest repo example because using circleci as ci did not work. There was not found any demo terratest .config circleci file so following [this comment](https://github.com/gruntwork-io/terratest/issues/265) [this module](https://github.com/influxdata/terraform-aws-influx/blob/v0.2.0/.circleci/config.yml) is modified and check using an example of [terratest](https://github.com/gruntwork-io/terratest). BUt the moduleci was needed. So this approach is used, and the following tests are tried. Also, it seems running aws safer as it will run in a sandbox, rather than using circleci.
+
+
+- [terraform-aws-s3-example](https://github.com/gruntwork-io/terratest/blob/master/examples/terraform-aws-s3-example/main.tf), [checks](https://github.com/gruntwork-io/terratest/blob/master/test/terraform_aws_s3_example_test.go) that many properties desired in the creation appears in the bucket resulted.
+- [terraform-aws-example](https://github.com/gruntwork-io/terratest/tree/master/examples/terraform-aws-example) ,[checks](https://github.com/gruntwork-io/terratest/blob/master/test/terraform_aws_example_test.go) the tag that the instance tag, owns the name that it is given as a variable.
+- [terraform-ssh-example](https://github.com/gruntwork-io/terratest/blob/master/examples/terraform-ssh-example/main.tf), [checks](https://github.com/gruntwork-io/terratest/blob/master/test/terraform_ssh_example_test.go) that it can be connceted to a public and a private instance, checking that the echo of what it is output is what it is input.
+
+
+
 # Table of Contents
 - [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
